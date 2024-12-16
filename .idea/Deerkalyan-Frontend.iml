@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+
+<template>
+  <div id="app">
+    <!-- Навигация -->
+    <nav class="container-fluid">
+      <img
+        class="banner"
+        src="https://i.ibb.co/Bq0yqXt/image.gif"
+        alt="Баннер генератора Deerkalyan"
+      />
+      <ul>
+        <li><strong>Генератор миксов Deerkalyan</strong></li>
+      </ul>
+      <ul>
+        <li>
+          <details>
+            <summary>Способы забивки чаши</summary>
+            <ul>
+              <li><a href="#sectors">Сектора</a></li>
+              <li><a href="#compote">Компот</a></li>
+              <li><a href="#layers">Слои</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Способы укладки табака</summary>
+            <ul>
+              <li><a href="#indent">С отступом</a></li>
+              <li><a href="#cold-touch">Холодное касание</a></li>
+              <li><a href="#hot-touch">Горячее касание</a></li>
+              <li><a href="#overpack">Оверпак</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="#generator" class="random-mix">Генератор миксов</a></li>
+      </ul>
+      <button class="random-mix" @click="generateRandomMix">
+        Случайный микс
+      </button>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="container">
+      <section v-for="section in sections" :key="section.id" :id="section.id">
+        <hgroup>
+          <h2>{{ section.title }}</h2>
+          <h3>{{ section.subtitle }}</h3>
+        </hgroup>
+        <p>{{ section.content }}</p>
+        <figure v-if="section.image">
+          <img :src="section.image" :alt="section.alt" />
+          <figcaption>{{ section.caption }}</figcaption>
+        </figure>
+      </section>
+
+      <section id="generator">
+        <hgroup>
+          <h2>Генератор миксов</h2>
+          <h3>Создайте свой идеальный микс</h3>
+        </hgroup>
+        <p>Выберите основной аромат, дополнительные ароматы и нотки</p>
+        <button class="random-mix" @click="generateRandomMix">
+          Случайный микс
+        </button>
+      </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="container">
+      <small>
+        <a href="https://deerkalyan.site" target="_blank">deerkalyan.site</a>
+        •
+        <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+        •
+        <a href="https://t.me/deerkalyan_msk">Telegram</a>
+        •
+        <a href="mailto:info@deerkalyan.site">info@deerkalyan.site</a>
+      </small>
+    </footer>
+
+    <!-- Кнопка вверх -->
+    <a href="#" title="Вернуться наверх" class="back-to-top">⬆</a>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      sections: [
+        {
+          id: "sectors",
+          title: "Сектора",
+          subtitle: "Методика забивки чаши",
+          content:
+            "Забивка секторами предполагает разделение чаши на несколько сегментов...",
+          image: "https://source.unsplash.com/featured/?hookah",
+          alt: "Кальян",
+          caption: "Пример укладки секторами"
+        },
+        {
+          id: "compote",
+          title: "Компот",
+          subtitle: "Методика забивки чаши",
+          content: "Метод компота предполагает...",
+          image: "https://source.unsplash.com/featured/?tobacco",
+          alt: "Табак",
+          caption: "Пример укладки компотом"
+        },
+        {
+          id: "layers",
+          title: "Слои",
+          subtitle: "Методика забивки чаши",
+          content: "Забивка слоями...",
+          image: "https://source.unsplash.com/featured/?shisha",
+          alt: "Кальянный дым",
+          caption: "Пример укладки слоями"
+        },
+        {
+          id: "indent",
+          title: "С отступом",
+          subtitle: "Способ укладки табака",
+          content: "Укладка табака с отступом..."
+        },
+        {
+          id: "cold-touch",
+          title: "Холодное касание",
+          subtitle: "Способ укладки табака",
+          content: "Укладка с холодным касанием..."
+        },
+        {
+          id: "hot-touch",
+          title: "Горячее касание",
+          content: "Укладка с горячим касанием..."
+        },
+        {
+          id: "overpack",
+          title: "Оверпак",
+          subtitle: "Способ укладки табака",
+          content: "Укладка с оверпаком..."
+        }
+      ]
+    };
+  },
+  methods: {
+    generateRandomMix() {
+      alert(
+        "Генерация случайного микса... Пример микса: Мята + Ваниль, способ забивки: Компот, укладка: Горячее касание."
+      );
+    }
+  }
+};
+</script>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: radial-gradient(circle, #000000, #440000, #ff5733);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.8), #220000, #ff5733);
+  overflow: hidden;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.random-mix {
+  background: linear-gradient(90deg, #ff5733, #c70039);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+}
+
+.random-mix:hover {
+  background: linear-gradient(90deg, #ff5733, #ff8555);
+  box-shadow: 0 4px 15px rgba(255, 133, 85, 0.5);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  background: rgba(255, 87, 51, 0.8);
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.back-to-top:hover {
+  transform: scale(1.2);
+  background: rgba(255, 133, 85, 0.9);
+  box-shadow: 0 4px 15px rgba(255, 133, 85, 0.5);
+}
+
+.container-fluid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 87, 51, 0.3), transparent);
+  mix-blend-mode: overlay;
+}
+
+nav a,
+footer a {
+  font-family: "Arial", sans-serif;
+  color: white;
+}
+
+nav a:hover,
+footer a:hover {
+  color: #ff8555;
+}
+</style>
